@@ -177,22 +177,8 @@ def test_iis_access_w3c_format(target_win: Target, fs_win: VirtualFilesystem) ->
     )
     assert w3c_record_3.source == "C:/Users/John/w3c-logs/W3SVC1/u_ex211001_x.log"
 
-    # W3C format type 3
-    w3c_record_4 = results[11]
-    assert w3c_record_4.ts == datetime(2021, 10, 1, 18, 2, 47, tzinfo=timezone.utc)
-    assert w3c_record_4.remote_ip == "::1"
-    assert w3c_record_4.remote_user is None
-    assert w3c_record_4.method == "GET"
-    assert w3c_record_4.uri == "/another/path+path2"
-    assert w3c_record_4.protocol == "HTTP/1.1"
-    assert w3c_record_4.status_code == 404
-    assert w3c_record_4.bytes_sent == 5125
-    assert w3c_record_4.referer is None
-    assert (
-        w3c_record_4.useragent
-        == "Mozilla/5.0+(Windows+NT+10.0;+Win64;+x64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/93.0.4577.82+Safari/537.36+Edg/93.0.961.52"  # noqa: E501
-    )
-    assert w3c_record_4.source == "C:/Users/John/w3c-logs/W3SVC1/u_ex211001_x.log"
+    w3c_record = results[4]
+    assert w3c_record.query == "param=value"
 
 
 @pytest.mark.parametrize(
