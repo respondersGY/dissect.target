@@ -249,9 +249,6 @@ def open(path: str | Path, *, fallbacks: list[type[Loader]] | None = None, **kwa
 
 register("local", "LocalLoader")
 register("asdf", "AsdfLoader")
-register("tar", "TarLoader")
-register("velociraptor", "VelociraptorLoader")
-register("zip", "ZipLoader")
 register("vmx", "VmxLoader")
 register("vmwarevm", "VmwarevmLoader")
 register("hyperv", "HyperVLoader")
